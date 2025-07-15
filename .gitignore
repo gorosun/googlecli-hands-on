@@ -1,0 +1,24 @@
+# Environment variables (contains sensitive information)
+.env
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript
+*.tsbuildinfo
+dist/
+
+# IDE
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Google Cloud credentials (if stored locally)
+*.json
+!package*.json
+!tsconfig.json
