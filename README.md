@@ -1,170 +1,78 @@
-# Google CLI Hands-On
+# Gemini CLI Hands-On
 
-A TypeScript project demonstrating Google Cloud Vertex AI integration with Gemini API for enterprise-grade AI applications.
+This repository provides a hands-on guide for using the Gemini CLI, a powerful command-line interface for interacting with Google's Gemini models.
 
 ## Overview
 
-This project showcases how to integrate Google Cloud Vertex AI with the Gemini AI models using TypeScript. It provides a complete setup for enterprise users who need secure, scalable AI integration with proper authentication and error handling.
+The Gemini CLI allows developers to leverage the capabilities of Gemini directly from their terminal, streamlining workflows and enabling new possibilities for AI-powered development. This hands-on guide will walk you through the setup, basic usage, and advanced features of the Gemini CLI.
 
-### Key Features
+### Key Features of Gemini CLI
 
-- **Google Cloud Vertex AI Integration**: Stable enterprise-grade AI API access
-- **Gemini 2.5 Pro Model**: Advanced language model capabilities
-- **TypeScript Implementation**: Type-safe development with comprehensive error handling
-- **Enterprise Security**: Service account-based authentication
-- **Streaming Support**: Real-time response streaming capabilities
-- **Comprehensive Documentation**: Detailed setup and troubleshooting guides
+- **Interactive Chat**: Engage in interactive chat sessions with Gemini models.
+- **Command Execution**: Run shell commands and scripts with AI assistance.
+- **File System Operations**: Read, write, and manage files on your local system.
+- **Web Browsing**: Fetch and process content from web pages.
+- **Extensible**: Integrate with external tools and APIs.
 
 ## Quick Start
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- Google Cloud Platform account with billing enabled
-- Google Cloud project with Vertex AI API enabled
+- A Google account with access to Gemini.
+- The Gemini CLI installed on your system.
 
 ### Installation
 
-1. **Clone the repository**
-
-   ```bash
-   git clone <repository-url>
-   cd googlecli-hands-on
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-
-   ```bash
-   cp .env.sample .env
-   ```
-
-   Edit `.env` with your Google Cloud configuration:
-
-   ```env
-   GOOGLE_APPLICATION_CREDENTIALS=path/to/your/service-account-key.json
-   GOOGLE_CLOUD_PROJECT=your-project-id
-   GOOGLE_CLOUD_LOCATION=us-central1
-   ```
-
-4. **Run the application**
-   ```bash
-   npm run dev
-   ```
+Follow the official [Gemini CLI installation guide](https://ai.google.dev/docs/gemini_cli_quickstart) to set up the CLI on your machine.
 
 ### Basic Usage
 
-The main application demonstrates both regular and streaming text generation:
+1. **Start an interactive chat session:**
 
-```typescript
-import { VertexAI } from "@google-cloud/vertexai";
+   ```bash
+   gemini
+   ```
 
-// Initialize Vertex AI
-const vertexAI = new VertexAI({
-  project: process.env.GOOGLE_CLOUD_PROJECT,
-  location: process.env.GOOGLE_CLOUD_LOCATION,
-});
+2. **Ask a question:**
 
-// Generate text with Gemini
-const model = vertexAI.getGenerativeModel({
-  model: "gemini-2.5-pro",
-});
+   ```
+   > What is the capital of France?
+   ```
 
-const result = await model.generateContent("Hello, world!");
-console.log(result.response.candidates[0].content);
-```
+3. **Execute a shell command:**
 
-## Project Structure
+   ```
+   > Run the command `ls -l`
+   ```
 
-```
-googlecli-hands-on/
-├── README.md                 # Project overview and quick start
-├── index.ts                  # Main application entry point
-├── package.json              # Node.js dependencies and scripts
-├── tsconfig.json            # TypeScript configuration
-├── .env.sample              # Environment variables template
-├── .gitignore               # Git ignore patterns
-└── docs/                    # Documentation
-    ├── index.md             # Documentation index
-    ├── template_documentation.md  # Documentation standards
-    ├── setup/               # Setup guides
-    │   ├── index.md
-    │   └── setup_google_cloud_vertex_ai_guide_jp.md
-    └── guides/              # Usage guides
-        ├── index.md
-        └── guides_google_ai_enterprise_jp.html
-```
+## Hands-On Exercises
+
+This repository contains a series of exercises designed to help you learn how to use the Gemini CLI effectively.
+
+### Exercise 1: Setting Up Your Environment
+
+1.  Clone this repository.
+2.  Configure your local Git user name and email address.
+3.  Set up a repository-specific SSH key.
+
+### Exercise 2: File Operations
+
+1.  Use the Gemini CLI to list the files in the `docs` directory.
+2.  Read the contents of `docs/index.md`.
+3.  Create a new file named `test.txt` with the content "Hello, Gemini!".
+
+### Exercise 3: Running Commands
+
+1.  Use the Gemini CLI to run the `npm install` command.
+2.  Execute a Git command, such as `git status`.
 
 ## Documentation
 
-### Setup Guides
+For more detailed information, refer to the official Gemini CLI documentation.
 
-- **[Google Cloud Vertex AI Setup](docs/setup/setup_google_cloud_vertex_ai_guide_jp.md)** - Complete setup guide for Google Cloud Vertex AI (Japanese)
-- **[Setup Index](docs/setup/index.md)** - Setup documentation overview
-
-### Usage Guides
-
-- **[Enterprise AI Guide](docs/guides/guides_google_ai_enterprise_jp.html)** - Enterprise usage guidelines (Japanese)
-- **[Guides Index](docs/guides/index.md)** - Usage documentation overview
-
-### Documentation Standards
-
-- **[Documentation Template](docs/template_documentation.md)** - Standards for creating and organizing documentation
-
-## Configuration
-
-### Environment Variables
-
-| Variable                         | Description                           | Example              |
-| -------------------------------- | ------------------------------------- | -------------------- |
-| `GOOGLE_APPLICATION_CREDENTIALS` | Path to service account JSON key file | `./path/to/key.json` |
-| `GOOGLE_CLOUD_PROJECT`           | Your Google Cloud project ID          | `my-project-123`     |
-| `GOOGLE_CLOUD_LOCATION`          | Google Cloud region                   | `us-central1`        |
-
-### Google Cloud Setup
-
-1. **Enable Vertex AI API** in your Google Cloud project
-2. **Create a service account** with Vertex AI permissions
-3. **Download the JSON key file** for authentication
-4. **Set up billing** for your Google Cloud project
-
-## Troubleshooting
-
-### Common Issues
-
-- **Authentication Errors**: Ensure your service account has proper Vertex AI permissions
-- **Billing Issues**: Verify that billing is enabled for your Google Cloud project
-- **API Errors**: Check that Vertex AI API is enabled in your project
-
-### Getting Help
-
-- Check the [detailed setup guide](docs/setup/setup_google_cloud_vertex_ai_guide_jp.md) for comprehensive troubleshooting
-- Review the [enterprise usage guide](docs/guides/guides_google_ai_enterprise_jp.html) for best practices
-
-## Technology Stack
-
-- **Runtime**: Node.js with TypeScript
-- **AI Platform**: Google Cloud Vertex AI
-- **AI Model**: Gemini 2.5 Pro
-- **Package**: `@google-cloud/vertexai` (stable version)
-- **Authentication**: Google Cloud Service Account
-
-## Security Considerations
-
-- Uses enterprise-grade Google Cloud Vertex AI (not experimental preview APIs)
-- Service account-based authentication for secure API access
-- Environment variable configuration for credential management
-- Proper `.gitignore` configuration to protect sensitive files
+- **[Gemini CLI Quickstart](https://ai.google.dev/docs/gemini_cli_quickstart)**
+- **[Gemini API Documentation](https://ai.google.dev/docs)**
 
 ## License
 
 This project is for educational and demonstration purposes.
-
-## Contributing
-
-Contributions are welcome! Please follow the documentation standards defined in [`docs/template_documentation.md`](docs/template_documentation.md) when adding new documentation.
